@@ -13,15 +13,14 @@ public class SlingShot : MonoBehaviour
     [Header("Transforms")]
     [SerializeField] private Transform leftPos;
     [SerializeField] private Transform rightPos;
-    [SerializeField] private Transform midTransform;
-    [SerializeField] private Transform birdTransform;
+    [SerializeField] public Transform midTransform;
 
     [Header("Offsets")]
     [SerializeField] private Vector2 offset;
 
     [Header("BirdData")]
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float forceMultiplier;
+    [SerializeField] private Bird bird;
 
     private void Start()
     {
@@ -32,8 +31,8 @@ public class SlingShot : MonoBehaviour
     {
         if (Mouse.current.leftButton.isPressed)
         {
-            rb.velocity = Vector2.zero;
-            rb.isKinematic = true;
+            bird.GetCurrentBirdRigidbody().velocity = Vector2.zero;
+            bird.GetCurrentBirdRigidbody().isKinematic = true;
             DrawSlingShot();
            
         }
@@ -91,19 +90,17 @@ public class SlingShot : MonoBehaviour
         float x = (birdPosition.x + midTransform.position.x) /2;
         float y = (birdPosition.y + midTransform.position.y) / 2;
 
-        birdTransform.position = new Vector3(x, y, 0);
+        bird.gameObjects[bird.birdIndex].transform.position = new Vector3(x, y, 0);
+        
     }
 
 
     void ThrowBird()
     {
         Vector3 endPosition = leftLineRenderer.GetPosition(1);
-        Vector3 force = endPosition - midTransform.position; 
-        rb.isKinematic = false;
-        rb.AddForce(-force * forceMultiplier, ForceMode2D.Impulse);
-        Debug.Log(force);
+        Vector3 force = endPosition - midTransform.position;
+        bird.GetCurrentBirdRigidbody().isKinematic = false;
+        bird.GetCurrentBirdRigidbody().AddForce(-force * forceMultiplier, ForceMode2D.Impulse);
+        bird.IncrementBirdIndex();
     }
-
-
-   
 }
