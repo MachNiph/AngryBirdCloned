@@ -22,6 +22,8 @@ public class SlingShot : MonoBehaviour
     [SerializeField] private float forceMultiplier;
     [SerializeField] private Bird bird;
 
+    public bool canTakeInput = true;
+
     private void Start()
     {
         ResetSlingSlot();
@@ -29,19 +31,23 @@ public class SlingShot : MonoBehaviour
 
     void Update()
     {
+        if(!canTakeInput)
+        {
+            return;
+        }
         if (Mouse.current.leftButton.isPressed)
         {
-            bird.GetCurrentBirdRigidbody().velocity = Vector2.zero;
-            bird.GetCurrentBirdRigidbody().isKinematic = true;
+            bird.GetCurrentBirdRigiBody().velocity = Vector2.zero;
+            bird.GetCurrentBirdRigiBody().isKinematic = true;
             DrawSlingShot();
            
         }
 
         if(Mouse.current.leftButton.wasReleasedThisFrame)
         {
+            canTakeInput = false;
             ThrowBird();
             ResetSlingSlot();
-            
         }
     }
 
@@ -99,8 +105,9 @@ public class SlingShot : MonoBehaviour
     {
         Vector3 endPosition = leftLineRenderer.GetPosition(1);
         Vector3 force = endPosition - midTransform.position;
-        bird.GetCurrentBirdRigidbody().isKinematic = false;
-        bird.GetCurrentBirdRigidbody().AddForce(-force * forceMultiplier, ForceMode2D.Impulse);
+        bird.GetCurrentBirdRigiBody().isKinematic = false;
+        bird.GetCurrentBirdDirection().isFlying = true;
+        bird.GetCurrentBirdRigiBody().AddForce(-force * forceMultiplier, ForceMode2D.Impulse);
         bird.IncrementBirdIndex();
     }
 }

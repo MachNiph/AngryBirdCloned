@@ -190,11 +190,43 @@ MonoBehaviour:
   offset: {x: -0.4, y: 0.4}
   forceMultiplier: 8
   bird: {fileID: 1088423507}
+  canTakeInput: 1
 --- !u!4 &393701915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5357647036826256945, guid: c6b1f43cec629dd4a95e84b552be5090, type: 3}
   m_PrefabInstance: {fileID: 1433907654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &414331807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414331808}
+  m_Layer: 0
+  m_Name: SpawnedDottedObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414331808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414331807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449886983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1623565591336012259, guid: f77103ea24165b84f9a63984a74dd227, type: 3}
@@ -1146,18 +1178,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1088423508}
     m_Modifications:
     - target: {fileID: 816466420683429146, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 816466420683429146, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 816466420683429146, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 816466420683429146, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.4
       objectReference: {fileID: 0}
@@ -1197,21 +1217,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3466314016851801766, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
+      propertyPath: spawnedDottedObjectParent
+      value: 
+      objectReference: {fileID: 414331808}
     - target: {fileID: 3854781459164401434, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
       propertyPath: m_Name
       value: Bird 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390850033473743384, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_Radius
-      value: 0.11300072
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390850033473743384, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.007059591
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390850033473743384, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.008196004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1253,6 +1265,7 @@ MonoBehaviour:
   - {fileID: 1492574934}
   slingShots: {fileID: 234495127}
   birdPosition: {x: 0, y: 0, z: 0}
+  takeInputTime: 4
   birdIndex: 0
 --- !u!4 &1088423508
 Transform:
@@ -1416,6 +1429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678256044516333496, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
+      propertyPath: spawnedDottedObjectParent
+      value: 
+      objectReference: {fileID: 414331808}
     - target: {fileID: 3854781459164401434, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
       propertyPath: m_Name
       value: Bird 1
@@ -2762,32 +2779,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: slingShots
+    - target: {fileID: 7251526080382569702, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
+      propertyPath: spawnedDottedObjectParent
       value: 
-      objectReference: {fileID: 234495127}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: gameObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: gameObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 3854781459164401434, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: gameObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 3854781459164401434, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: gameObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 3854781459164401434, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-    - target: {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: spriteRenderers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5933269570984853506, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
+      objectReference: {fileID: 414331808}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2866,3 +2862,4 @@ SceneRoots:
   - {fileID: 234495126}
   - {fileID: 540607850}
   - {fileID: 1088423508}
+  - {fileID: 414331808}

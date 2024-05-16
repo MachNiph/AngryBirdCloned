@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
@@ -8,6 +9,8 @@ public class Bird : MonoBehaviour
     [SerializeField] public GameObject[] gameObjects;
     [SerializeField] private SlingShot slingShots;
     [SerializeField] private Vector3 birdPosition;
+    [SerializeField] private float takeInputTime;
+    [SerializeField] private Transform spawnedDottedParent;
 
     [SerializeField]
     public int birdIndex;
@@ -27,13 +30,32 @@ public class Bird : MonoBehaviour
 
     public IEnumerator IncrementBirdIndexCoroutine()
     {
-        yield return new WaitForSeconds(1);
-        birdIndex++;
-        gameObjects[birdIndex].transform.position = birdPosition;
+        if(birdIndex < gameObjects.Length)
+        {
+            yield return new WaitForSeconds(takeInputTime);
+            Destroy(gameObjects[birdIndex]);
+            foreach(Transform dot in spawnedDottedParent)
+            {
+                Destroy(dot.gameObject);
+            }
+            if(birdIndex == gameObjects.Length - 1)
+            {
+                yield break;
+            }
+            birdIndex++;
+            gameObjects[birdIndex].transform.position = birdPosition;
+            slingShots.canTakeInput = true;
+        }
+     
     }
 
-    public Rigidbody2D GetCurrentBirdRigidbody()
+    public Rigidbody2D GetCurrentBirdRigiBody()
     {
         return gameObjects[birdIndex].GetComponent<Rigidbody2D>();
+    }
+
+    public BirdDirection GetCurrentBirdDirection()
+    {
+        return gameObjects[birdIndex].GetComponent<BirdDirection>();
     }
 }
