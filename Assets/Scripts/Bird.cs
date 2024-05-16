@@ -8,12 +8,16 @@ public class Bird : MonoBehaviour
 
     [SerializeField] public GameObject[] gameObjects;
     [SerializeField] private SlingShot slingShots;
+    [SerializeField] private HitBox hitBox;
     [SerializeField] private Vector3 birdPosition;
     [SerializeField] private float takeInputTime;
     [SerializeField] private Transform spawnedDottedParent;
 
     [SerializeField]
     public int birdIndex;
+
+
+    [SerializeField]private ParticleSystem birdDeathFeather;
 
 
     private void Start()
@@ -34,9 +38,11 @@ public class Bird : MonoBehaviour
         {
             yield return new WaitForSeconds(takeInputTime);
             Destroy(gameObjects[birdIndex]);
-            foreach(Transform dot in spawnedDottedParent)
+            Instantiate(birdDeathFeather, gameObjects[birdIndex].transform.position, Quaternion.identity);
+            foreach (Transform dot in spawnedDottedParent)
             {
                 Destroy(dot.gameObject);
+                
             }
             if(birdIndex == gameObjects.Length - 1)
             {

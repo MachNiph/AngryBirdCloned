@@ -130,6 +130,7 @@ MonoBehaviour:
   rb: {fileID: 1711481442543802026}
   destroyVelocity: 3
   birdDirection: {fileID: 1678256044516333496}
+  birdDestroyParticle: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}
 --- !u!60 &5683214971328060095
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -201,4 +202,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevPosition: {x: 0, y: 0}
   dottedObject: {fileID: 3473584707271528896, guid: 72ae987bdd0b73f4b9e3888b186e178a, type: 3}
+  spawnedDottedObjectParent: {fileID: 0}
   isFlying: 0

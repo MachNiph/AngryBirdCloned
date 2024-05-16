@@ -173,3 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5779215724670855085}
   destroyVelocity: 0.5
+  birdDirection: {fileID: 0}
+  birdDeathFeather: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
+  enemyDeathSmoke: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}

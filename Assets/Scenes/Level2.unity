@@ -1217,6 +1217,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836443667107510955, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
+      propertyPath: birdDestroyParticle
+      value: 
+      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
     - target: {fileID: 3466314016851801766, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
       propertyPath: spawnedDottedObjectParent
       value: 
@@ -1265,7 +1269,9 @@ MonoBehaviour:
   - {fileID: 1492574934}
   slingShots: {fileID: 234495127}
   birdPosition: {x: 0, y: 0, z: 0}
-  takeInputTime: 4
+  takeInputTime: 1
+  spawnedDottedParent: {fileID: 414331808}
+  birdDestroyParticle: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}
   birdIndex: 0
 --- !u!4 &1088423508
 Transform:
@@ -1433,6 +1439,10 @@ PrefabInstance:
       propertyPath: spawnedDottedObjectParent
       value: 
       objectReference: {fileID: 414331808}
+    - target: {fileID: 1836443667107510955, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
+      propertyPath: birdDestroyParticle
+      value: 
+      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
     - target: {fileID: 3854781459164401434, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
       propertyPath: m_Name
       value: Bird 1
@@ -2775,6 +2785,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1836443667107510955, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
+      propertyPath: birdDestroyParticle
+      value: 
+      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
     - target: {fileID: 3854781459164401434, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
       propertyPath: m_Name
       value: Bird
