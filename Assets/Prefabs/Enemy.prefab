@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 690133018913427347}
   - component: {fileID: 6216724118696823007}
   - component: {fileID: 7944638900230011504}
+  - component: {fileID: -5398799161890509849}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -148,3 +149,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.21528882}
   serializedVersion: 2
   m_Radius: 0.54971117
+--- !u!114 &-5398799161890509849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252211204467406564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510930b47c8a27945b1fb864512b33d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  enemyDeathSmoke: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}
+  destroyVelocity: 0.2
+  enemyHitSprites:
+  - {fileID: 1350094891, guid: 0b97d383fbb75cf47945081eff805719, type: 3}
+  - {fileID: -1446189745, guid: 0b97d383fbb75cf47945081eff805719, type: 3}
+  - {fileID: -123796334, guid: 0b97d383fbb75cf47945081eff805719, type: 3}
+  spriteRenderer: {fileID: 690133018913427347}
+  rb: {fileID: 6216724118696823007}

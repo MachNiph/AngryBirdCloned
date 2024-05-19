@@ -6,8 +6,8 @@ public class BirdDirection : MonoBehaviour
 {
     [SerializeField] private Vector2 prevPosition;
     [SerializeField] private GameObject dottedObject;
-    [SerializeField] private Transform spawnedDottedObjectParent;
     public bool isFlying;
+    public List<GameObject> spawnedDottedObjects;
    
     void Start()
     {
@@ -19,10 +19,10 @@ public class BirdDirection : MonoBehaviour
     {
         if (!isFlying) return;
         float distance = Vector2.Distance(transform.position, prevPosition);
-        if(distance > 0.5)
+        if(distance > 1)
         {
-            GameObject spawnedDottedObject =  Instantiate(dottedObject, transform.position, Quaternion.identity);
-            spawnedDottedObject.transform.SetParent(spawnedDottedObjectParent.transform);
+            GameObject spawnedDot = Instantiate(dottedObject, transform.position, Quaternion.identity);
+            spawnedDottedObjects.Add(spawnedDot);
             prevPosition = transform.position;
         }
     }

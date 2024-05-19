@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -369,6 +370,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506d50b786255f6419285f9d666d1f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 1088423507}
+  smoothSpeed: 0.8
+  offset: {x: 5.8, y: 0, z: -10}
 --- !u!1001 &535302710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,7 +1063,7 @@ GameObject:
   - component: {fileID: 869958831}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1217,14 +1233,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1836443667107510955, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: birdDestroyParticle
-      value: 
-      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
-    - target: {fileID: 3466314016851801766, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
-      propertyPath: spawnedDottedObjectParent
-      value: 
-      objectReference: {fileID: 414331808}
     - target: {fileID: 3854781459164401434, guid: 56a896d653ed9dc4887c6b1b1c2b614a, type: 3}
       propertyPath: m_Name
       value: Bird 2
@@ -1268,11 +1276,13 @@ MonoBehaviour:
   - {fileID: 161870595}
   - {fileID: 1492574934}
   slingShots: {fileID: 234495127}
+  hitBox: {fileID: 0}
   birdPosition: {x: 0, y: 0, z: 0}
   takeInputTime: 1
   spawnedDottedParent: {fileID: 414331808}
-  birdDestroyParticle: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}
   birdIndex: 0
+  birdDeathFeather: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
+  woodDestroy: {fileID: 2198106700677812121, guid: 990decec72cfa3e4d9afddfc24defb66, type: 3}
 --- !u!4 &1088423508
 Transform:
   m_ObjectHideFlags: 0
@@ -1435,14 +1445,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1678256044516333496, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
-      propertyPath: spawnedDottedObjectParent
-      value: 
-      objectReference: {fileID: 414331808}
-    - target: {fileID: 1836443667107510955, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
-      propertyPath: birdDestroyParticle
-      value: 
-      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
     - target: {fileID: 3854781459164401434, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
       propertyPath: m_Name
       value: Bird 1
@@ -1519,6 +1521,10 @@ PrefabInstance:
     - target: {fileID: 4252211204467406564, guid: f77103ea24165b84f9a63984a74dd227, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252211204467406564, guid: f77103ea24165b84f9a63984a74dd227, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2683,6 +2689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1325559419}
     m_Modifications:
+    - target: {fileID: -5398799161890509849, guid: f77103ea24165b84f9a63984a74dd227, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1623565591336012259, guid: f77103ea24165b84f9a63984a74dd227, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.17
@@ -2785,18 +2795,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1836443667107510955, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: birdDestroyParticle
-      value: 
-      objectReference: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
     - target: {fileID: 3854781459164401434, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
-    - target: {fileID: 7251526080382569702, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
-      propertyPath: spawnedDottedObjectParent
-      value: 
-      objectReference: {fileID: 414331808}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

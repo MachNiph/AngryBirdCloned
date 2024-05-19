@@ -6,28 +6,26 @@ public class HitBox : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float destroyVelocity;
     [SerializeField] private BirdDirection birdDirection;
 
+
+    [SerializeField] private ParticleSystem woodDestroy;
+
    
-    [SerializeField] private ParticleSystem enemyDeathSmoke;
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(rb.velocity.magnitude > destroyVelocity)
+
+        if (birdDirection != null && (collision.gameObject.CompareTag(TagManager.Enemy) || collision.gameObject.CompareTag(TagManager.Wood)))
         {
-            if (collision.gameObject.CompareTag(TagManager.Enemy))
-            {
-                Destroy(collision.gameObject);
-                Instantiate(enemyDeathSmoke, collision.gameObject.transform.position, Quaternion.identity);
-            }
-            if (birdDirection!=null && (collision.gameObject.CompareTag(TagManager.Enemy) || collision.gameObject.CompareTag(TagManager.Wood)))
-            {
-                birdDirection.isFlying = false;
-            }
+            birdDirection.isFlying = false;
         }
 
-       
+        if(collision.gameObject.CompareTag(TagManager.Wood) && rb.velocity.magnitude > 0.4)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(woodDestroy,collision.gameObject.transform.position,Quaternion.identity);
+        }
        
     }
 }

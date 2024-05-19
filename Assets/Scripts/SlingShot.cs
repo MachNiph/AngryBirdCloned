@@ -19,8 +19,8 @@ public class SlingShot : MonoBehaviour
     [SerializeField] private Vector2 offset;
 
     [Header("BirdData")]
-    [SerializeField] private float forceMultiplier;
-    [SerializeField] private Bird bird;
+    [SerializeField] public float forceMultiplier;
+    [SerializeField] private BirdController bird;
 
     public bool canTakeInput = true;
 
@@ -109,5 +109,8 @@ public class SlingShot : MonoBehaviour
         bird.GetCurrentBirdDirection().isFlying = true;
         bird.GetCurrentBirdRigiBody().AddForce(-force * forceMultiplier, ForceMode2D.Impulse);
         bird.IncrementBirdIndex();
+        if (bird.GetCurrentBirdPower()!=null) {
+            bird.GetCurrentBirdPower().enabled = true;
+        }
     }
 }

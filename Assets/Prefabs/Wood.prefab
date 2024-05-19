@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4636670349114488338}
   - component: {fileID: 5779215724670855085}
   - component: {fileID: 8907507844360258807}
-  - component: {fileID: 1002710379312638445}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Wood
@@ -159,20 +158,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.95, y: 0.17}
   m_EdgeRadius: 0
---- !u!114 &1002710379312638445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957912465911349412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed1adc9dc6ef3274798c293087013ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 5779215724670855085}
-  destroyVelocity: 0.5
-  birdDirection: {fileID: 0}
-  birdDeathFeather: {fileID: 4203851600842722928, guid: 3d71ad6464cdfde46949d027ee3d8f58, type: 3}
-  enemyDeathSmoke: {fileID: 6572769314902681358, guid: db490d8c5dec130419b8c3b8d3ac36ef, type: 3}

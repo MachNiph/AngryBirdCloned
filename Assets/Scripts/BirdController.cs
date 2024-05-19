@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bird : MonoBehaviour
+public class BirdController : MonoBehaviour
 {
 
     [SerializeField] public GameObject[] gameObjects;
@@ -18,6 +18,8 @@ public class Bird : MonoBehaviour
 
 
     [SerializeField]private ParticleSystem birdDeathFeather;
+    [SerializeField]private ParticleSystem woodDestroy;
+
 
 
     private void Start()
@@ -39,7 +41,7 @@ public class Bird : MonoBehaviour
             yield return new WaitForSeconds(takeInputTime);
             Destroy(gameObjects[birdIndex]);
             Instantiate(birdDeathFeather, gameObjects[birdIndex].transform.position, Quaternion.identity);
-            foreach (Transform dot in spawnedDottedParent)
+            foreach (GameObject dot in GetCurrentBirdDirection().spawnedDottedObjects)
             {
                 Destroy(dot.gameObject);
                 
@@ -60,8 +62,35 @@ public class Bird : MonoBehaviour
         return gameObjects[birdIndex].GetComponent<Rigidbody2D>();
     }
 
+    public BirdPower GetCurrentBirdPower()
+    {
+        return gameObjects[birdIndex].GetComponent<BirdPower>();
+    }
+
     public BirdDirection GetCurrentBirdDirection()
     {
         return gameObjects[birdIndex].GetComponent<BirdDirection>();
     }
+
+    public Transform GetCurrentTransform()
+    {
+        if (birdIndex < 0 || birdIndex >= gameObjects.Length)
+        {
+            Debug.LogWarning("Bird index out of range!");
+            return null;
+        }
+
+        GameObject currentBird = gameObjects[birdIndex];
+
+        if (currentBird != null)
+        {
+            return currentBird.transform;
+        }
+        else
+        {
+
+            return slingShots.midTransform;
+        }
+    }
+
 }
