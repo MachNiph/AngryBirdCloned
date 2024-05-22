@@ -217,5 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1711481442543802026}
-  forcePower: 2
+  forcePower: 6
   birdPosition: {x: 0, y: 0, z: 0}
+  canPowerUp: 1

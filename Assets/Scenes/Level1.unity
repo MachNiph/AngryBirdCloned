@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2749938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3854781459164401434, guid: 0714aadd909f88946a274491e2ac4494, type: 3}
+  m_PrefabInstance: {fileID: 1317904923390925139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &46875833
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjects:
-  - {fileID: 2052164868}
+  - {fileID: 2749938}
   - {fileID: 342122254}
   - {fileID: 2052164868}
   slingShots: {fileID: 234495127}
@@ -1926,6 +1931,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 816466420683429146, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191763982484478413, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3191763982484478413, guid: 4276793a953bbbb4f97979a42eae3b5e, type: 3}

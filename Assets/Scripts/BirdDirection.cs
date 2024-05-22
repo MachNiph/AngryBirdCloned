@@ -19,7 +19,7 @@ public class BirdDirection : MonoBehaviour
     {
         if (!isFlying) return;
         float distance = Vector2.Distance(transform.position, prevPosition);
-        if(distance > 1)
+        if(distance > 0.7)
         {
             GameObject spawnedDot = Instantiate(dottedObject, transform.position, Quaternion.identity);
             spawnedDottedObjects.Add(spawnedDot);
